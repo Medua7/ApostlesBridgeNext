@@ -7,6 +7,7 @@ import com.google.gson.JsonObject;
 import com.medua.apostlesbridgenext.handler.LogHandler;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -37,7 +38,7 @@ public class Config {
             return;
         }
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(CONFIG_FILE))) {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(CONFIG_FILE), StandardCharsets.UTF_8))) {
             JsonObject json = GSON.fromJson(reader, JsonObject.class);
 
             url = json.has("url") ? json.get("url").getAsString() : url;
@@ -120,7 +121,7 @@ public class Config {
         }
         json.add("ignored", ignoredJsonArray);
 
-        try (FileWriter writer = new FileWriter(CONFIG_FILE)) {
+        try (Writer writer = new OutputStreamWriter(new FileOutputStream(CONFIG_FILE), StandardCharsets.UTF_8)) {
             GSON.toJson(json, writer);
         } catch (IOException e) {
             LOGGER.error("There was an issue writing to the config file!");

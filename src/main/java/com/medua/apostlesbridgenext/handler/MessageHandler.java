@@ -49,7 +49,6 @@ public class MessageHandler {
                 }
                 Text imageComponent = Text.literal("§r[§dIMAGE_" + imageCount++ + "§r]")
                         .styled(style -> style
-                                .withColor(0xFF55FFDD)
                                 .withClickEvent(new ClickEvent.OpenUrl(URI.create(imageURL)))
                                 .withHoverEvent(new HoverEvent.ShowText(Text.literal("Click to open the image")))
                         );
