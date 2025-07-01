@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "apostlesbridgenext",
+  "version": "${version}",
+  "name": "ApostlesBridgeNext",
+  "description": "A bridge mod for Apostles",
+  "authors": ["Medua"],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.medua.apostlesbridgenext.client.ApostlesBridgeNextClient"
+    ],
+    "main": [
+      "com.medua.apostlesbridgenext.ApostlesBridgeNext"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
